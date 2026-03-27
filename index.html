@@ -927,6 +927,11 @@ body::after {
 
 <script>
 // ── CONSTANTS ────────────────────────────────────────────────────────────
+// Sync wallet address between dashboard input and post task form
+function onWalletInput(val) {
+  document.getElementById('poster-addr').value = val;
+  fetchChainData();
+}
 const KOIOS   = 'https://koios.vector.testnet.apexfusion.org';
 const EXPLORER= 'https://vector.testnet.apexscan.org';
 const WALLET  = ''; // Set dynamically from user input
@@ -1123,10 +1128,10 @@ async function fetchChainData() {
     const r = await fetch(`${KOIOS}/api/v1/address_info`, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({_addresses: [document.getElementById('poster-addr').value.trim()].filter(a => a)})
+      body: JSON.stringify({_addresses: [(document.getElementById('wallet-addr-input').value || document.getElementById('poster-addr').value || '').trim()].filter(a => a)})
     });
     const d = await r.json();
-    const addr = document.getElementById('poster-addr').value.trim();
+    const addr = (document.getElementById('wallet-addr-input').value || document.getElementById('poster-addr').value || '').trim();
     if (!addr) {
       document.getElementById('m-balance').textContent = 'Enter wallet above';
       return;
@@ -1213,6 +1218,7 @@ async function postBounty() {
   document.getElementById('task-type').value = 'research';
   document.getElementById('task-reward').value = '5';
   document.getElementById('poster-addr').value = '';
+  document.getElementById('wallet-addr-input').value = '';
 }
 
 // ── CLAUDE API CALL ───────────────────────────────────────────────────────
