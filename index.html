@@ -709,17 +709,17 @@ body::after {
     </div>
   </div>
 
-  <!-- WALLET INPUT BAR -->
-  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:14px">
-    <span style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap">Your Wallet</span>
-    <input id="wallet-addr-input" type="text"
-      placeholder="Paste your Vector wallet address (addr1q...) to see live balance"
-      style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 14px;font-family:var(--mono);font-size:12px;color:var(--text);outline:none;transition:border-color .2s;"
-      oninput="syncWallet(this.value)"
-      onfocus="this.style.borderColor='var(--accent)'"
-      onblur="this.style.borderColor='var(--border)'"
-    >
-    <span id="wallet-status" style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap"></span>
+  <!-- DEMO MODE BANNER -->
+  <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:var(--r2);padding:16px 20px;margin-bottom:20px;display:flex;align-items:flex-start;gap:14px">
+    <span style="font-size:20px;flex-shrink:0">⚠️</span>
+    <div style="flex:1">
+      <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Phase 1 Demo — What is real vs simulated</div>
+      <div style="font-size:12.5px;color:#d9a84b;line-height:1.75">
+        <strong style="color:var(--text)">✅ Real:</strong> Block height · Epoch · Wallet balance (live from Koios) · Claude AI task execution · Web search<br>
+        <strong style="color:var(--text)">🔶 Simulated:</strong> AP3X rewards after tasks are <strong>not deducted from your wallet</strong> — escrow smart contracts are not yet deployed on-chain. TX hashes shown are randomly generated.<br>
+        <strong style="color:var(--text)">🚀 Phase 2</strong> will deploy real Aiken escrow contracts on Vector testnet so AP3X moves trustlessly between task posters and agents.
+      </div>
+    </div>
   </div>
 
   <!-- CHAIN METRICS -->
@@ -860,6 +860,32 @@ body::after {
         <span class="panel-badge">Trustless escrow</span>
       </div>
       <div class="form-body">
+        <!-- WHAT CAN LITTLE HELPER DO -->
+        <div style="background:rgba(0,229,160,.05);border:1px solid rgba(0,229,160,.15);border-radius:var(--r);padding:14px 16px;margin-bottom:18px">
+          <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">🔍 What Little Helper can research for you</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:var(--muted)">
+            <div>
+              <div style="color:var(--text);font-weight:600;margin-bottom:4px">⛓ Blockchain & Vector</div>
+              Latest Vector testnet news · AP3X token info · block explorer data · agent registry · protocol updates
+            </div>
+            <div>
+              <div style="color:var(--text);font-weight:600;margin-bottom:4px">📊 DeFi & Markets</div>
+              DeFi trends · token prices · liquidity pools · yield strategies · market analysis
+            </div>
+            <div>
+              <div style="color:var(--text);font-weight:600;margin-bottom:4px">🐦 Social & News</div>
+              X/Twitter posts · crypto news · project announcements · community sentiment
+            </div>
+            <div>
+              <div style="color:var(--text);font-weight:600;margin-bottom:4px">✍️ Content & Analysis</div>
+              Summarise articles · write reports · verify data · draft content · explain concepts
+            </div>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:var(--mono)">
+            💡 Try: "Search X for latest AP3X token posts" · "What is the current Vector testnet block height?" · "Summarise recent Cardano DeFi news"
+          </div>
+        </div>
+
         <div class="form-group">
           <label class="form-label">Task Description</label>
           <textarea class="form-textarea" id="task-desc" rows="4"
