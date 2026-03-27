@@ -371,6 +371,10 @@ body::after {
   font-family: var(--mono); font-size: 13px; font-weight: 700;
   color: var(--accent);
 }
+.bounty-card.completed .bounty-task {
+  -webkit-line-clamp: unset;
+  display: block;
+}
 .bounty-task {
   font-size: 12px; color: var(--text);
   line-height: 1.5; margin-bottom: 6px;
@@ -716,7 +720,7 @@ body::after {
       <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Phase 1 Demo — What is real vs simulated</div>
       <div style="font-size:12.5px;color:#d9a84b;line-height:1.75">
         <strong style="color:var(--text)">✅ Real:</strong> Block height · Epoch · Wallet balance (live from Koios) · Claude AI task execution · Web search<br>
-        <strong style="color:var(--text)">🔶 Simulated:</strong> AP3X rewards after tasks are <strong>not deducted from your wallet</strong> — escrow smart contracts are not yet deployed on-chain. TX hashes shown are randomly generated.<br>
+        <strong style="color:var(--text)">🔶 Simulated:</strong> AP3X rewards are <strong>not deducted from your wallet</strong> — escrow contracts not yet on-chain. TX hashes are randomly generated.<br>
         <strong style="color:var(--text)">🚀 Phase 2</strong> will deploy real Aiken escrow contracts on Vector testnet so AP3X moves trustlessly between task posters and agents.
       </div>
     </div>
@@ -873,30 +877,15 @@ body::after {
         <span class="panel-badge">Trustless escrow</span>
       </div>
       <div class="form-body">
-        <!-- WHAT CAN LITTLE HELPER DO -->
         <div style="background:rgba(0,229,160,.05);border:1px solid rgba(0,229,160,.15);border-radius:var(--r);padding:14px 16px;margin-bottom:18px">
           <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">🔍 What Little Helper can research for you</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:var(--muted)">
-            <div>
-              <div style="color:var(--text);font-weight:600;margin-bottom:4px">⛓ Blockchain & Vector</div>
-              Latest Vector testnet news · AP3X token info · block explorer data · agent registry · protocol updates
-            </div>
-            <div>
-              <div style="color:var(--text);font-weight:600;margin-bottom:4px">📊 DeFi & Markets</div>
-              DeFi trends · token prices · liquidity pools · yield strategies · market analysis
-            </div>
-            <div>
-              <div style="color:var(--text);font-weight:600;margin-bottom:4px">🐦 Social & News</div>
-              X/Twitter posts · crypto news · project announcements · community sentiment
-            </div>
-            <div>
-              <div style="color:var(--text);font-weight:600;margin-bottom:4px">✍️ Content & Analysis</div>
-              Summarise articles · write reports · verify data · draft content · explain concepts
-            </div>
+            <div><div style="color:var(--text);font-weight:600;margin-bottom:4px">⛓ Blockchain & Vector</div>Latest Vector testnet news · AP3X token info · block explorer data · agent registry · protocol updates</div>
+            <div><div style="color:var(--text);font-weight:600;margin-bottom:4px">📊 DeFi & Markets</div>DeFi trends · token prices · liquidity pools · yield strategies · market analysis</div>
+            <div><div style="color:var(--text);font-weight:600;margin-bottom:4px">🐦 Social & News</div>X/Twitter posts · crypto news · project announcements · community sentiment</div>
+            <div><div style="color:var(--text);font-weight:600;margin-bottom:4px">✍️ Content & Analysis</div>Summarise articles · write reports · verify data · draft content · explain concepts</div>
           </div>
-          <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:var(--mono)">
-            💡 Try: "Search X for latest AP3X token posts" · "What is the current Vector testnet block height?" · "Summarise recent Cardano DeFi news"
-          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:var(--mono)">💡 Try: "Search X for latest AP3X posts" · "Summarise recent Cardano DeFi news" · "What is the Vector AI Platform?"</div>
         </div>
 
         <div class="form-group">
@@ -1045,34 +1034,55 @@ function renderLog() {
 
 // ── BOUNTIES ─────────────────────────────────────────────────────────────
 function renderBounties() {
-  const el   = document.getElementById('bounty-list');
-  const el2  = document.getElementById('all-bounty-list');
-  const cnt  = document.getElementById('bounty-count');
-  const cnt2 = document.getElementById('all-bounty-count');
-  const total = agentState.bounties.length;
-  cnt.textContent = `${total} total`;
-  cnt2.textContent = `${total} total`;
+  const dashList = document.getElementById('bounty-list');
+  const allList  = document.getElementById('all-bounty-list');
+  const cnt      = document.getElementById('bounty-count');
+  const cnt2     = document.getElementById('all-bounty-count');
 
-  if (!total) {
-    const empty = `<div class="empty"><div class="empty-icon">🔍</div><div class="empty-text">No bounties yet — post a task!</div></div>`;
-    el.innerHTML = empty; el2.innerHTML = empty; return;
+  const active = agentState.bounties.filter(b => b.status === 'active').length;
+  document.getElementById('m-bounties').textContent = active;
+  cnt.textContent  = agentState.bounties.length + ' total';
+  cnt2.textContent = agentState.bounties.length + ' total';
+
+  if (!agentState.bounties.length) {
+    const empty = '<div class="empty"><div class="empty-icon">🔍</div><div class="empty-text">No bounties yet — post a task!</div></div>';
+    dashList.innerHTML = empty;
+    allList.innerHTML  = empty;
+    return;
   }
 
-  const html = agentState.bounties.slice(0, 10).map(b => `
-    <div class="bounty-card ${b.status}">
+  const html = agentState.bounties.map(b => {
+    const resultSection = (b.status === 'completed' && b.result) ? `
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">
+        <div style="font-family:var(--mono);font-size:9px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">✅ Task Result — Claude AI</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.7;white-space:pre-wrap;word-break:break-word;background:var(--bg);border-radius:var(--r);padding:10px 12px;border:1px solid var(--border)">${escapeHtml(b.result)}</div>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:6px">Claimed: ${b.completedAt ? b.completedAt.toLocaleString() : 'just now'} · Reward: ${b.reward} AP3X (simulated)</div>
+      </div>` : '';
+
+    return `<div class="bounty-card ${b.status}">
       <div class="bounty-row1">
         <span class="bounty-id">${b.id.slice(0,16)}…</span>
         <span class="bounty-reward">+${b.reward} AP3X</span>
       </div>
-      <div class="bounty-task">${b.task}</div>
+      <div class="bounty-task">${escapeHtml(b.task)}</div>
       <div class="bounty-meta">
         <span class="bounty-status ${b.status}">${b.status}</span>
         <span class="bounty-time">${timeAgo(b.createdAt)}</span>
+        <span style="font-family:var(--mono);font-size:10px;color:var(--muted)">${b.type || 'research'}</span>
       </div>
-    </div>
-  `).join('');
-  el.innerHTML = html; el2.innerHTML = html;
-  document.getElementById('m-bounties').textContent = agentState.bounties.filter(b=>b.status==='active').length;
+      ${resultSection}
+    </div>`;
+  }).join('');
+
+  dashList.innerHTML = html;
+  allList.innerHTML  = html;
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 // ── TX FEED ───────────────────────────────────────────────────────────────
@@ -1243,7 +1253,7 @@ async function postBounty() {
 
   // Complete the bounty
   agentState.bounties = agentState.bounties.map(b =>
-    b.id === bountyId ? { ...b, status: 'completed', result } : b
+    b.id === bountyId ? { ...b, status: 'completed', result, completedAt: new Date() } : b
   );
   agentState.tasksCompleted++;
   agentState.totalEarned += reward;
