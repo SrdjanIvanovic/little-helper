@@ -713,7 +713,7 @@ body::after {
   <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:14px">
     <span style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap">Your Wallet</span>
     <input id="wallet-addr-input" type="text"
-      placeholder="Paste your Vector wallet address here (addr1q...) to see your live balance"
+      placeholder="Paste your Vector wallet address (addr1q...) to see live balance"
       style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 14px;font-family:var(--mono);font-size:12px;color:var(--text);outline:none;transition:border-color .2s;"
       oninput="syncWallet(this.value)"
       onfocus="this.style.borderColor='var(--accent)'"
@@ -942,7 +942,7 @@ body::after {
 // ── CONSTANTS ────────────────────────────────────────────────────────────
 const KOIOS   = 'https://koios.vector.testnet.apexfusion.org';
 const EXPLORER= 'https://vector.testnet.apexscan.org';
-const WALLET  = ''; // User-configurable via dashboard input
+const WALLET  = '';
 
 // ── AGENT STATE (demo) ───────────────────────────────────────────────────
 let agentState = {
@@ -1152,7 +1152,7 @@ async function fetchChainData() {
     const r = await fetch(`${KOIOS}/api/v1/address_info`, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({_addresses: [(document.getElementById('wallet-addr-input')?.value?.trim() || '')]}.filter ? {_addresses: [(document.getElementById('wallet-addr-input')?.value?.trim() || '')].filter(a => a)} : {_addresses: []})
+      body: JSON.stringify({_addresses: [document.getElementById('wallet-addr-input')?.value?.trim()].filter(a => a)})
     });
     const d = await r.json();
     const bal = (parseInt(d[0]?.balance || 0) / 1_000_000).toFixed(2);
@@ -1231,12 +1231,9 @@ async function postBounty() {
 
   btn.disabled = false;
   btn.textContent = 'DEPLOY BOUNTY CONTRACT';
-
-  // Reset form to defaults
   document.getElementById('task-desc').value = '';
   document.getElementById('task-type').value = 'research';
   document.getElementById('task-reward').value = '5';
-  // Keep wallet address - user doesn't need to re-enter it
 }
 
 // ── CLAUDE API CALL ───────────────────────────────────────────────────────
