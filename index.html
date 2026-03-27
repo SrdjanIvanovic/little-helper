@@ -710,7 +710,7 @@ body::after {
   </div>
 
   <!-- DEMO MODE BANNER -->
-  <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:var(--r2);padding:16px 20px;margin-bottom:20px;display:flex;align-items:flex-start;gap:14px">
+  <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:var(--r2);padding:16px 20px;margin-bottom:16px;display:flex;align-items:flex-start;gap:14px">
     <span style="font-size:20px;flex-shrink:0">⚠️</span>
     <div style="flex:1">
       <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Phase 1 Demo — What is real vs simulated</div>
@@ -720,6 +720,19 @@ body::after {
         <strong style="color:var(--text)">🚀 Phase 2</strong> will deploy real Aiken escrow contracts on Vector testnet so AP3X moves trustlessly between task posters and agents.
       </div>
     </div>
+  </div>
+
+  <!-- WALLET INPUT BAR -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:14px">
+    <span style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap">Your Wallet</span>
+    <input id="wallet-addr-input" type="text"
+      placeholder="Paste your Vector wallet address (addr1q...) to see live balance"
+      style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 14px;font-family:var(--mono);font-size:12px;color:var(--text);outline:none;transition:border-color .2s;"
+      oninput="syncWallet(this.value)"
+      onfocus="this.style.borderColor='var(--accent)'"
+      onblur="this.style.borderColor='var(--border)'"
+    >
+    <span id="wallet-status" style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap"></span>
   </div>
 
   <!-- CHAIN METRICS -->
