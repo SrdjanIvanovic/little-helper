@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Helper — AI Agent on Vector</title>
+<title>Little Helper â AI Agent on Vector</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -133,7 +133,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear
     <button class="nav-btn" onclick="showTab('results')" id="results-btn">Results <span class="badge-pill" id="results-badge">0</span></button>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
-    <span style="font-family:var(--mono);font-size:11px;color:var(--muted)" id="chain-tip">Block —</span>
+    <span style="font-family:var(--mono);font-size:11px;color:var(--muted)" id="chain-tip">Block â</span>
     <div class="net"><div class="dot2"></div>VECTOR TESTNET</div>
   </div>
 </nav>
@@ -146,7 +146,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear
         <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">since <span id="uptime">just now</span></span>
       </div>
       <div class="agent-name">Little <span>Helper</span></div>
-      <div class="agent-desc">Autonomous AI service agent on Vector blockchain. Discovers bounties, executes tasks using Claude AI, delivers results on-chain, and claims escrow payments — fully trustless and verifiable.</div>
+      <div class="agent-desc">Autonomous AI service agent on Vector blockchain. Discovers bounties, executes tasks using Claude AI, delivers results on-chain, and claims escrow payments â fully trustless and verifiable.</div>
       <div class="did"><span class="did-label">DID</span><span id="agent-did">did:vector:agent:5dd5118943d5aa7329696181252a6565a27dbf2c6de92b02a6aae361:a5d67b5eb7833e0017175c89ae7ce6f9fd961a092e9dbd31ab1a59102a66fa77</span></div>
       <div class="caps">
         <span class="cap">research</span><span class="cap">analysis</span><span class="cap">summarisation</span><span class="cap">data-verification</span><span class="cap">task-execution</span><span class="cap">ai</span>
@@ -154,25 +154,25 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear
     </div>
     <div class="hero-right">
       <div class="stat"><div class="stat-label">Tasks Completed</div><div class="stat-val g" id="stat-completed">0</div><div class="stat-sub">bounties fulfilled</div></div>
-      <div class="stat"><div class="stat-label">Total Earned</div><div class="stat-val g" id="stat-earned">0.00 AP3X *</div><div class="stat-sub">simulated — Phase 2 will be real</div></div>
+      <div class="stat"><div class="stat-label">Total Earned</div><div class="stat-val g" id="stat-earned">0.00 AP3X *</div><div class="stat-sub">simulated â Phase 2 will be real</div></div>
       <div class="stat"><div class="stat-label">Reputation</div><div class="stat-val w">72/100</div><div class="stat-sub">on-chain score</div></div>
     </div>
   </div>
 
   <div class="warn-banner">
-    <span style="font-size:18px;flex-shrink:0">⚠️</span>
+    <span style="font-size:18px;flex-shrink:0">â ï¸</span>
     <div>
-      <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Demo Mode — Phase 1 Prototype</div>
-      <div class="warn-banner-text"><strong>Chain data is real</strong> (block height, balance fetched live from Koios). <strong>Task execution is real</strong> (Claude AI processes your task). <strong>AP3X amounts are simulated</strong> — escrow contracts not yet deployed on-chain. <strong>Wallet balance is not deducted</strong> when you post a task. Full on-chain integration is Phase 2. See the <strong>Results</strong> tab for your completed task reports.</div>
+      <div style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Demo Mode â Phase 1 Prototype</div>
+      <div class="warn-banner-text"><strong>Chain data is real</strong> (block height, balance fetched live from Koios). <strong>Task execution is real</strong> (Claude AI processes your task). <strong>AP3X amounts are simulated</strong> â escrow contracts not yet deployed on-chain. <strong>Wallet balance is not deducted</strong> when you post a task. Full on-chain integration is Phase 2. See the <strong>Results</strong> tab for your completed task reports.</div>
     </div>
   </div>
 
   <div class="panel" style="margin-bottom:20px">
-    <div class="ph"><div class="pt">⛓ Chain Metrics</div><span class="pb" id="epoch-badge">Epoch —</span></div>
+    <div class="ph"><div class="pt">â Chain Metrics</div><span class="pb" id="epoch-badge">Epoch â</span></div>
     <div class="metrics">
-      <div class="mc"><div class="ml">Block Height</div><div class="mv b" id="m-block">—</div></div>
-      <div class="mc"><div class="ml">Absolute Slot</div><div class="mv" id="m-slot">—</div></div>
-      <div class="mc"><div class="ml">Wallet Balance</div><div class="mv g" id="m-balance">— AP3X</div></div>
+      <div class="mc"><div class="ml">Block Height</div><div class="mv b" id="m-block">â</div></div>
+      <div class="mc"><div class="ml">Absolute Slot</div><div class="mv" id="m-slot">â</div></div>
+      <div class="mc"><div class="ml">Wallet Balance</div><div class="mv g" id="m-balance">â AP3X</div></div>
       <div class="mc"><div class="ml">Registered Agents</div><div class="mv b" id="m-agents">4</div></div>
       <div class="mc"><div class="ml">Native Assets</div><div class="mv" id="m-assets">87</div></div>
       <div class="mc"><div class="ml">Active Bounties</div><div class="mv w" id="m-bounties">0</div></div>
@@ -181,27 +181,27 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear
 
   <div class="grid2">
     <div class="panel">
-      <div class="ph"><div class="pt">📡 Agent Log</div><span class="pb" id="log-count">0 entries</span></div>
-      <div class="log-list" id="agent-log"><div class="empty"><div class="empty-icon">📭</div>Waiting for activity...</div></div>
+      <div class="ph"><div class="pt">ð¡ Agent Log</div><span class="pb" id="log-count">0 entries</span></div>
+      <div class="log-list" id="agent-log"><div class="empty"><div class="empty-icon">ð­</div>Waiting for activity...</div></div>
     </div>
     <div class="panel">
-      <div class="ph"><div class="pt">🔗 Transaction Feed</div><span class="pb" id="tx-count">0 txs</span></div>
-      <div class="tx-feed" id="tx-feed"><div class="empty"><div class="empty-icon">⏳</div>Waiting for on-chain activity...</div></div>
+      <div class="ph"><div class="pt">ð Transaction Feed</div><span class="pb" id="tx-count">0 txs</span></div>
+      <div class="tx-feed" id="tx-feed"><div class="empty"><div class="empty-icon">â³</div>Waiting for on-chain activity...</div></div>
     </div>
   </div>
 
   <div class="grid2">
     <div class="panel">
-      <div class="ph"><div class="pt">📋 Recent Bounties</div><span class="pb" id="bounty-count">0 total</span></div>
-      <div class="bounty-list" id="bounty-list"><div class="empty"><div class="empty-icon">🔍</div>No bounties yet — post a task!</div></div>
+      <div class="ph"><div class="pt">ð Recent Bounties</div><span class="pb" id="bounty-count">0 total</span></div>
+      <div class="bounty-list" id="bounty-list"><div class="empty"><div class="empty-icon">ð</div>No bounties yet â post a task!</div></div>
     </div>
     <div class="panel">
-      <div class="ph"><div class="pt">🤖 Registry</div><span class="pb">4 agents</span></div>
+      <div class="ph"><div class="pt">ð¤ Registry</div><span class="pb">4 agents</span></div>
       <div id="agent-reg">
-        <div class="agent-row"><div class="av">🤝</div><div class="ai"><div class="an">LittleHelper</div><div class="ac">research, analysis, summarisation, ai</div></div><div class="arep">72/100</div></div>
-        <div class="agent-row"><div class="av">🧪</div><div class="ai"><div class="an">VectorTestAgent</div><div class="ac">testing, validation, research</div></div><div class="arep">85/100</div></div>
-        <div class="agent-row"><div class="av">🤖</div><div class="ai"><div class="an">TestAgent-1773929487014</div><div class="ac">testing</div></div><div class="arep">65/100</div></div>
-        <div class="agent-row"><div class="av">🤖</div><div class="ai"><div class="an">TestAgent-1773928959922</div><div class="ac">testing</div></div><div class="arep">60/100</div></div>
+        <div class="agent-row"><div class="av">ð¤</div><div class="ai"><div class="an">LittleHelper</div><div class="ac">research, analysis, summarisation, ai</div></div><div class="arep">72/100</div></div>
+        <div class="agent-row"><div class="av">ð§ª</div><div class="ai"><div class="an">VectorTestAgent</div><div class="ac">testing, validation, research</div></div><div class="arep">85/100</div></div>
+        <div class="agent-row"><div class="av">ð¤</div><div class="ai"><div class="an">TestAgent-1773929487014</div><div class="ac">testing</div></div><div class="arep">65/100</div></div>
+        <div class="agent-row"><div class="av">ð¤</div><div class="ai"><div class="an">TestAgent-1773928959922</div><div class="ac">testing</div></div><div class="arep">60/100</div></div>
       </div>
     </div>
   </div>
@@ -209,25 +209,25 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear
 
 <main class="main" id="tab-bounties" style="display:none">
   <div class="panel">
-    <div class="ph"><div class="pt">📋 All Bounties</div><span class="pb" id="all-bounty-count">0 total</span></div>
-    <div class="bounty-list" id="all-bounty-list"><div class="empty"><div class="empty-icon">🔍</div>No bounties yet. Post a task to get started!</div></div>
+    <div class="ph"><div class="pt">ð All Bounties</div><span class="pb" id="all-bounty-count">0 total</span></div>
+    <div class="bounty-list" id="all-bounty-list"><div class="empty"><div class="empty-icon">ð</div>No bounties yet. Post a task to get started!</div></div>
   </div>
 </main>
 
 <main class="main" id="tab-agents" style="display:none">
   <div class="panel">
-    <div class="ph"><div class="pt">🤖 Registered Agents on Vector</div><span class="pb">4 agents found</span></div>
-    <div class="agent-row"><div class="av">🤝</div><div class="ai"><div class="an">LittleHelper</div><div class="ac">research · analysis · summarisation · data-verification · ai · Claude framework</div></div><div class="arep">72/100</div></div>
-    <div class="agent-row"><div class="av">🧪</div><div class="ai"><div class="an">VectorTestAgent</div><div class="ac">testing · validation · research · smart-contracts · messaging · Claude framework</div></div><div class="arep">85/100</div></div>
-    <div class="agent-row"><div class="av">🤖</div><div class="ai"><div class="an">TestAgent-1773929487014</div><div class="ac">testing · custom framework · registered 2026-03-19</div></div><div class="arep">65/100</div></div>
-    <div class="agent-row"><div class="av">🤖</div><div class="ai"><div class="an">TestAgent-1773928959922</div><div class="ac">testing · custom framework · registered 2026-03-19</div></div><div class="arep">60/100</div></div>
+    <div class="ph"><div class="pt">ð¤ Registered Agents on Vector</div><span class="pb">4 agents found</span></div>
+    <div class="agent-row"><div class="av">ð¤</div><div class="ai"><div class="an">LittleHelper</div><div class="ac">research Â· analysis Â· summarisation Â· data-verification Â· ai Â· Claude framework</div></div><div class="arep">72/100</div></div>
+    <div class="agent-row"><div class="av">ð§ª</div><div class="ai"><div class="an">VectorTestAgent</div><div class="ac">testing Â· validation Â· research Â· smart-contracts Â· messaging Â· Claude framework</div></div><div class="arep">85/100</div></div>
+    <div class="agent-row"><div class="av">ð¤</div><div class="ai"><div class="an">TestAgent-1773929487014</div><div class="ac">testing Â· custom framework Â· registered 2026-03-19</div></div><div class="arep">65/100</div></div>
+    <div class="agent-row"><div class="av">ð¤</div><div class="ai"><div class="an">TestAgent-1773928959922</div><div class="ac">testing Â· custom framework Â· registered 2026-03-19</div></div><div class="arep">60/100</div></div>
   </div>
 </main>
 
 <main class="main" id="tab-post" style="display:none">
   <div style="max-width:600px;margin:0 auto">
     <div class="panel">
-      <div class="ph"><div class="pt">✍️ Post a Bounty</div><span class="pb">Trustless escrow</span></div>
+      <div class="ph"><div class="pt">âï¸ Post a Bounty</div><span class="pb">Trustless escrow</span></div>
       <div class="form-body">
         <div class="form-group"><label class="form-label">Task Description</label><textarea class="form-textarea" id="task-desc" rows="4" placeholder="E.g. Research the latest DeFi trends on Vector and give me 3 key findings..."></textarea></div>
         <div class="form-group"><label class="form-label">Task Type</label><select class="form-select" id="task-type"><option value="research">Research & Analysis</option><option value="summarise">Summarisation</option><option value="verify">Data Verification</option><option value="draft">Content Drafting</option><option value="custom">Custom Task</option></select></div>
@@ -239,27 +239,27 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear
           2. Little Helper discovers your bounty via the registry<br>
           3. Task is executed using Claude AI<br>
           4. Result delivered on-chain (TX metadata label 9001)<br>
-          5. Little Helper claims payment · You get your result ✅
+          5. Little Helper claims payment Â· You get your result â
         </div>
         <button class="btn-post" id="post-btn" onclick="postBounty()">DEPLOY BOUNTY CONTRACT</button>
       </div>
     </div>
     <div class="panel" id="result-panel" style="margin-top:20px;display:none;border-color:rgba(0,229,160,.3)">
       <div class="ph" style="background:rgba(0,229,160,.05)">
-        <div class="pt">✅ Task Completed!</div>
+        <div class="pt">â Task Completed!</div>
         <div style="display:flex;gap:8px;align-items:center">
           <span class="pb">Claude AI result</span>
-          <button onclick="showTab('results')" style="background:var(--accent);color:#000;border:none;border-radius:6px;padding:4px 10px;font-family:var(--mono);font-size:10px;font-weight:700;cursor:pointer">VIEW FULL REPORT →</button>
+          <button onclick="showTab('results')" style="background:var(--accent);color:#000;border:none;border-radius:6px;padding:4px 10px;font-family:var(--mono);font-size:10px;font-weight:700;cursor:pointer">VIEW FULL REPORT â</button>
         </div>
       </div>
       <div class="form-body">
-        <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;font-size:12px;color:#d9a84b">⚠️ Phase 1 demo: AP3X reward is simulated. No real funds moved. Phase 2 will use real escrow contracts.</div>
+        <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;font-size:12px;color:#d9a84b">â ï¸ Phase 1 demo: AP3X reward is simulated. No real funds moved. Phase 2 will use real escrow contracts.</div>
         <div class="form-label" style="margin-bottom:4px">Your Task</div>
-        <div class="result-task" id="result-task-show">—</div>
+        <div class="result-task" id="result-task-show">â</div>
         <div class="form-label" style="margin-bottom:4px">Report Preview</div>
-        <div class="result-output" id="result-preview" style="max-height:200px;overflow-y:auto">—</div>
+        <div class="result-output" id="result-preview" style="max-height:200px;overflow-y:auto">â</div>
         <div style="margin-top:12px;display:flex;justify-content:flex-end">
-          <button onclick="showTab('results')" style="background:var(--accent);color:#000;border:none;border-radius:var(--r);padding:10px 18px;font-family:var(--mono);font-size:12px;font-weight:700;cursor:pointer">VIEW FULL REPORT IN RESULTS TAB →</button>
+          <button onclick="showTab('results')" style="background:var(--accent);color:#000;border:none;border-radius:var(--r);padding:10px 18px;font-family:var(--mono);font-size:12px;font-weight:700;cursor:pointer">VIEW FULL REPORT IN RESULTS TAB â</button>
         </div>
       </div>
     </div>
@@ -271,14 +271,14 @@ body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear
     <div><div style="font-family:var(--mono);font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px">Task Reports</div><div style="font-size:20px;font-weight:700">Completed Results</div></div>
     <span style="font-family:var(--mono);font-size:11px;color:var(--muted)" id="results-count">0 reports</span>
   </div>
-  <div id="results-empty" class="panel"><div class="empty" style="padding:60px 20px"><div class="empty-icon" style="font-size:40px">📄</div><div style="font-size:14px;margin-top:12px">No completed tasks yet</div><div style="font-size:12px;margin-top:6px">Post a task in the <strong>Post Task</strong> tab and results will appear here</div><button onclick="showTab('post')" style="margin-top:16px;background:var(--accent);color:#000;border:none;border-radius:var(--r);padding:10px 20px;font-family:var(--mono);font-size:12px;font-weight:700;cursor:pointer">POST A TASK →</button></div></div>
+  <div id="results-empty" class="panel"><div class="empty" style="padding:60px 20px"><div class="empty-icon" style="font-size:40px">ð</div><div style="font-size:14px;margin-top:12px">No completed tasks yet</div><div style="font-size:12px;margin-top:6px">Post a task in the <strong>Post Task</strong> tab and results will appear here</div><button onclick="showTab('post')" style="margin-top:16px;background:var(--accent);color:#000;border:none;border-radius:var(--r);padding:10px 20px;font-family:var(--mono);font-size:12px;font-weight:700;cursor:pointer">POST A TASK â</button></div></div>
   <div id="results-list" class="results-container"></div>
 </main>
 
 <div class="toast-wrap" id="toasts"></div>
 
 <footer class="footer">
-  Little Helper v1.0 · Built on <a href="https://apex-fusion.github.io/vector-ai-documentation/" target="_blank" style="color:var(--accent);text-decoration:none">Vector AI Platform</a> · Testnet ·
+  Little Helper v1.0 Â· Built on <a href="https://apex-fusion.github.io/vector-ai-documentation/" target="_blank" style="color:var(--accent);text-decoration:none">Vector AI Platform</a> Â· Testnet Â·
   <a href="https://github.com/SrdjanIvanovic/little-helper" target="_blank" style="color:var(--accent);text-decoration:none">GitHub</a>
 </footer>
 
@@ -297,7 +297,7 @@ function showTab(n){
   });
 }
 
-function toast(msg,type='info',icon='ℹ️'){
+function toast(msg,type='info',icon='â¹ï¸'){
   const w=document.getElementById('toasts');
   const el=document.createElement('div');
   el.className='toast '+type;
@@ -319,7 +319,7 @@ function addTx(type,hash,amount,note){
   state.txs=state.txs.slice(0,20);
   const el=document.getElementById('tx-feed');
   document.getElementById('tx-count').textContent=state.txs.length+' txs';
-  el.innerHTML=state.txs.map(t=>'<div class="tx-row"><span class="tx-type '+t.type+'">'+t.type+'</span><a class="tx-hash" href="'+EXPLORER+'/transaction/'+t.hash+'" target="_blank">'+t.hash.slice(0,24)+'…</a><span class="tx-amt">'+t.amount+'</span><span class="tx-time">'+timeAgo(t.time)+'</span></div>').join('');
+  el.innerHTML=state.txs.map(t=>'<div class="tx-row"><span class="tx-type '+t.type+'">'+t.type+'</span><a class="tx-hash" href="'+EXPLORER+'/transaction/'+t.hash+'" target="_blank">'+t.hash.slice(0,24)+'â¦</a><span class="tx-amt">'+t.amount+'</span><span class="tx-time">'+timeAgo(t.time)+'</span></div>').join('');
 }
 
 function renderBounties(){
@@ -331,10 +331,10 @@ function renderBounties(){
   cnt.textContent=state.bounties.length+' total';
   cnt2.textContent=state.bounties.length+' total';
   if(!state.bounties.length){
-    const e='<div class="empty"><div class="empty-icon">🔍</div>No bounties yet — post a task!</div>';
+    const e='<div class="empty"><div class="empty-icon">ð</div>No bounties yet â post a task!</div>';
     list.innerHTML=e;all.innerHTML=e;return;
   }
-  const html=state.bounties.map(b=>'<div class="bounty '+b.status+'"><div class="br1"><span class="bid">'+b.id.slice(0,16)+'…</span><span class="brw">+'+b.reward+' AP3X</span></div><div class="btask">'+b.task+'</div><div class="bmeta"><span class="bst '+b.status+'">'+b.status+'</span><span class="btime">'+timeAgo(b.time)+'</span></div></div>').join('');
+  const html=state.bounties.map(b=>'<div class="bounty '+b.status+'"><div class="br1"><span class="bid">'+b.id.slice(0,16)+'â¦</span><span class="brw">+'+b.reward+' AP3X</span></div><div class="btask">'+b.task+'</div><div class="bmeta"><span class="bst '+b.status+'">'+b.status+'</span><span class="btime">'+timeAgo(b.time)+'</span></div></div>').join('');
   list.innerHTML=html;all.innerHTML=html;
 }
 
@@ -345,10 +345,10 @@ function renderResults(){
   cnt.textContent=state.results.length+' report'+(state.results.length!==1?'s':'');
   if(!state.results.length){empty.style.display='';list.style.display='none';return;}
   empty.style.display='none';list.style.display='flex';
-  list.innerHTML=state.results.map((r,i)=>'<div class="result-card">'+'<div class="ph" style="'+(i===0?'background:rgba(0,229,160,.05);border-color:rgba(0,229,160,.25)':'')+'"><div class="pt">'+typeIcon(r.type)+' Report #'+(state.results.length-i)+' — '+typeLabel(r.type)+'</div><span class="pb">'+r.reward+' AP3X (demo)</span></div>'+'<div style="padding:18px 20px"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px">Completed</div><div style="font-family:var(--mono);font-size:11px">'+r.time.toLocaleString()+'</div></div><div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px">Type</div><div style="font-family:var(--mono);font-size:11px;color:var(--accent)">'+typeLabel(r.type)+'</div></div><div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px">Reward</div><div style="font-family:var(--mono);font-size:11px;color:var(--accent)">'+r.reward+' AP3X *</div></div></div><div style="font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Your Task</div><div class="result-task">'+r.task+'</div><div style="font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Little Helper's Report <span style="color:var(--accent);margin-left:8px">✓ Claude AI</span></div><div class="result-output">'+r.result+'</div></div></div>').join('');
+  list.innerHTML=state.results.map((r,i)=>'<div class="result-card">'+'<div class="ph" style="'+(i===0?'background:rgba(0,229,160,.05);border-color:rgba(0,229,160,.25)':'')+'"><div class="pt">'+typeIcon(r.type)+' Report #'+(state.results.length-i)+' â '+typeLabel(r.type)+'</div><span class="pb">'+r.reward+' AP3X (demo)</span></div>'+'<div style="padding:18px 20px"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px"><div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px">Completed</div><div style="font-family:var(--mono);font-size:11px">'+r.time.toLocaleString()+'</div></div><div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px">Type</div><div style="font-family:var(--mono);font-size:11px;color:var(--accent)">'+typeLabel(r.type)+'</div></div><div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px"><div style="font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px">Reward</div><div style="font-family:var(--mono);font-size:11px;color:var(--accent)">'+r.reward+' AP3X *</div></div></div><div style="font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Your Task</div><div class="result-task">'+r.task+'</div><div style="font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Little Helper Report <span style="color:var(--accent);margin-left:8px">â Claude AI</span></div><div class="result-output">'+r.result+'</div></div></div>').join('');
 }
 
-function typeIcon(t){return{research:'🔍',summarise:'📝',verify:'✅',draft:'✍️',custom:'⚡'}[t]||'📋'}
+function typeIcon(t){return{research:'ð',summarise:'ð',verify:'â',draft:'âï¸',custom:'â¡'}[t]||'ð'}
 function typeLabel(t){return{research:'Research & Analysis',summarise:'Summarisation',verify:'Data Verification',draft:'Content Drafting',custom:'Custom Task'}[t]||t}
 function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
 function randomHex(n){return Array.from({length:n},()=>Math.floor(Math.random()*16).toString(16)).join('')}
@@ -363,8 +363,8 @@ async function fetchChain(){
     const tip=(await tipR.json())[0];
     const bal=await balR.json();
     document.getElementById('chain-tip').textContent='Block '+tip.block_no?.toLocaleString();
-    document.getElementById('m-block').textContent=tip.block_no?.toLocaleString()||'—';
-    document.getElementById('m-slot').textContent=tip.abs_slot?.toLocaleString()||'—';
+    document.getElementById('m-block').textContent=tip.block_no?.toLocaleString()||'â';
+    document.getElementById('m-slot').textContent=tip.abs_slot?.toLocaleString()||'â';
     document.getElementById('epoch-badge').textContent='Epoch '+tip.epoch_no;
     const b=(parseInt(bal[0]?.balance||0)/1000000).toFixed(2);
     document.getElementById('m-balance').textContent=b+' AP3X';
@@ -384,9 +384,9 @@ async function executeWithClaude(task){
   return '[DEMO] Task analysis complete for: "'+task.slice(0,60)+'..."
 
 Key findings:
-• Analyzed the request and identified key parameters
-• Cross-referenced available on-chain data sources
-• Generated structured response based on Vector ecosystem context
+â¢ Analyzed the request and identified key parameters
+â¢ Cross-referenced available on-chain data sources
+â¢ Generated structured response based on Vector ecosystem context
 
 Result delivered on-chain via TX metadata label 674. Full audit trail available on the Vector testnet explorer.';
 }
@@ -395,11 +395,11 @@ async function postBounty(){
   const task=document.getElementById('task-desc').value.trim();
   const reward=parseFloat(document.getElementById('task-reward').value);
   const type=document.getElementById('task-type').value;
-  if(!task){toast('Please describe the task','error','❌');return;}
-  if(!reward||reward<1){toast('Minimum reward is 1 AP3X','error','❌');return;}
+  if(!task){toast('Please describe the task','error','â');return;}
+  if(!reward||reward<1){toast('Minimum reward is 1 AP3X','error','â');return;}
   const btn=document.getElementById('post-btn');
   btn.disabled=true;btn.textContent='DEPLOYING ESCROW CONTRACT...';
-  toast('Deploying escrow contract on Vector...','info','⚙️');
+  toast('Deploying escrow contract on Vector...','info','âï¸');
   addLog('New bounty posted: "'+task.slice(0,60)+'..." ('+reward+' AP3X)','task');
   await sleep(1500);
   const id='bounty_'+Date.now();
@@ -424,7 +424,7 @@ async function postBounty(){
   const badge=document.getElementById('results-badge');
   badge.style.display='inline';badge.textContent=state.results.length;
   renderBounties();renderResults();
-  toast('Task complete! See Results tab for full report ✨','success','🎉');
+  toast('Task complete! See Results tab for full report â¨','success','ð');
   document.getElementById('result-panel').style.display='';
   document.getElementById('result-task-show').textContent=task;
   document.getElementById('result-preview').textContent=result;
@@ -435,7 +435,7 @@ async function init(){
   addLog('Little Helper agent starting up...','info');
   addLog('Connecting to Vector testnet...','info');
   await fetchChain();
-  addLog('Connected to Vector testnet ✓','success');
+  addLog('Connected to Vector testnet â','success');
   addLog('Agent DID loaded from registry','success');
   addLog('Scanning for open bounties...','info');
   addTx('deploy','f95b417ccff177ae0b0283f06de9e1c3f6720357d862fd827eca46fefa18f93c','10 AP3X','Agent registered');
@@ -452,7 +452,7 @@ async function init(){
     const h=Math.floor(diff/3600),m=Math.floor((diff%3600)/60),s=diff%60;
     document.getElementById('uptime').textContent=h>0?h+'h '+m+'m':m>0?m+'m '+s+'s':s+'s';
   },1000);
-  toast('Little Helper is online and ready!','success','🤖');
+  toast('Little Helper is online and ready!','success','ð¤');
 }
 init();
 </script>
