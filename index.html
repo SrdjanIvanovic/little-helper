@@ -709,6 +709,21 @@ body::after {
     </div>
   </div>
 
+  <!-- WALLET INPUT BAR -->
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:14px">
+    <span style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap">Your Wallet</span>
+    <input
+      id="wallet-addr-input"
+      type="text"
+      placeholder="Paste your Vector wallet address here (addr1q...) to see your live balance"
+      style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:8px 14px;font-family:var(--mono);font-size:12px;color:var(--text);outline:none;transition:border-color .2s;"
+      oninput="syncWallet(this.value)"
+      onfocus="this.style.borderColor='var(--accent)'"
+      onblur="this.style.borderColor='var(--border)'"
+    >
+    <span id="wallet-status" style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap"></span>
+  </div>
+
   <!-- CHAIN METRICS -->
   <div class="panel" style="margin-bottom:20px">
     <div class="panel-head">
@@ -726,7 +741,7 @@ body::after {
       </div>
       <div class="metric-cell">
         <div class="metric-label">Wallet Balance</div>
-        <div class="metric-val g" id="m-balance">— AP3X</div>
+        <div class="metric-val g" id="m-balance" style="font-size:13px;color:var(--muted)">Enter wallet above</div>
       </div>
       <div class="metric-cell">
         <div class="metric-label">Registered Agents</div>
@@ -882,7 +897,7 @@ body::after {
         <div class="form-group" style="margin-bottom:20px">
           <label class="form-label">Your Wallet Address</label>
           <input class="form-input" id="poster-addr" type="text"
-            placeholder="Enter your Vector wallet address (addr1q...)...">
+            placeholder="Auto-filled from dashboard wallet field (addr1q...)">
         </div>
 
         <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:16px;font-size:12px;color:var(--muted);line-height:1.6">
@@ -927,14 +942,9 @@ body::after {
 
 <script>
 // ── CONSTANTS ────────────────────────────────────────────────────────────
-// Sync wallet address between dashboard input and post task form
-function onWalletInput(val) {
-  document.getElementById('poster-addr').value = val;
-  fetchChainData();
-}
 const KOIOS   = 'https://koios.vector.testnet.apexfusion.org';
 const EXPLORER= 'https://vector.testnet.apexscan.org';
-const WALLET  = ''; // Set dynamically from user input
+const WALLET  = ''; // User-configurable — entered via wallet input field on dashboard
 
 // ── AGENT STATE (demo) ───────────────────────────────────────────────────
 let agentState = {
@@ -1101,6 +1111,22 @@ async function loadAgents() {
 }
 
 // ── CHAIN DATA ────────────────────────────────────────────────────────────
+function syncWallet(val) {
+  const posterAddr = document.getElementById('poster-addr');
+  if (posterAddr) posterAddr.value = val;
+  const status = document.getElementById('wallet-status');
+  if (val.trim().startsWith('addr1')) {
+    status.textContent = '✓ valid';
+    status.style.color = 'var(--accent)';
+  } else if (val.trim().length > 0) {
+    status.textContent = 'invalid';
+    status.style.color = 'var(--red)';
+  } else {
+    status.textContent = '';
+  }
+  fetchChainData();
+}
+
 async function fetchChainData() {
   try {
     const [tipRes, assetsRes] = await Promise.all([
@@ -1128,16 +1154,14 @@ async function fetchChainData() {
     const r = await fetch(`${KOIOS}/api/v1/address_info`, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({_addresses: [(document.getElementById('wallet-addr-input').value || document.getElementById('poster-addr').value || '').trim()].filter(a => a)})
+      body: JSON.stringify({_addresses: [(document.getElementById('wallet-addr-input')?.value?.trim() || WALLET)].filter(a => a)})
     });
     const d = await r.json();
-    const addr = (document.getElementById('wallet-addr-input').value || document.getElementById('poster-addr').value || '').trim();
-    if (!addr) {
-      document.getElementById('m-balance').textContent = 'Enter wallet above';
-      return;
-    }
     const bal = (parseInt(d[0]?.balance || 0) / 1_000_000).toFixed(2);
-    document.getElementById('m-balance').textContent = `${bal} AP3X`;
+    const balEl = document.getElementById('m-balance');
+    balEl.textContent = bal + ' AP3X';
+    balEl.style.color = 'var(--accent)';
+    balEl.style.fontSize = '';
   } catch(e) {}
 }
 
@@ -1213,12 +1237,11 @@ async function postBounty() {
   btn.disabled = false;
   btn.textContent = 'DEPLOY BOUNTY CONTRACT';
 
-  // Reset form to defaults after successful submission
+  // Reset form fields to defaults
   document.getElementById('task-desc').value = '';
   document.getElementById('task-type').value = 'research';
   document.getElementById('task-reward').value = '5';
-  document.getElementById('poster-addr').value = '';
-  document.getElementById('wallet-addr-input').value = '';
+  // Note: we keep wallet address so user doesn't have to re-enter it
 }
 
 // ── CLAUDE API CALL ───────────────────────────────────────────────────────
