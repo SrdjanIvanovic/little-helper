@@ -20,7 +20,7 @@ from datetime import datetime, timezone
 KOIOS_URL = os.getenv("VECTOR_KOIOS_URL", "https://koios.vector.testnet.apexfusion.org")
 MCP_URL = os.getenv("VECTOR_MCP_URL", "https://mcp.vector.testnet.apexfusion.org/sse")
 MNEMONIC = os.getenv("VECTOR_MNEMONIC", "")
-ANTHROPIC_KEY = os.getenv("AZTHROPIC_API_KEY", "")
+ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", "30"))
 
 AGENT_NAME = "LittleHelper"
